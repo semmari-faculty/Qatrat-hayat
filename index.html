@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>قطرة حياة | دائرة يلل</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f5f7f9;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#b5121b,#e63946);
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+header h1{
+    margin:0 0 10px;
+    font-size:38px;
+}
+
+header p{
+    margin:0;
+    font-size:18px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    margin-top:-25px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.scope{
+    background:#fff1f2;
+    border-right:5px solid #c51f2a;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    color:#9c1720;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+button{
+    border:0;
+    border-radius:12px;
+    padding:15px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.red{
+    background:#c51f2a;
+    color:white;
+}
+
+.green{
+    background:#198754;
+    color:white;
+}
+
+.tabs{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.tab{
+    background:#edf0f2;
+    color:#333;
+}
+
+.tab.active{
+    background:#c51f2a;
+    color:white;
+}
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+.form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #d4d9de;
+    border-radius:10px;
+    font-size:15px;
+    background:white;
+}
+
+textarea{
+    min-height:100px;
+}
+
+.notice{
+    background:#fff8e5;
+    border-right:5px solid #e0a000;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:20px;
+    line-height:1.7;
+}
+
+footer{
+    text-align:center;
+    padding:30px 15px;
+    color:#666;
+    font-size:14px;
+}
+
+@media(max-width:700px){
+    .buttons,.form{
+        grid-template-columns:1fr;
+    }
+
+    header h1{
+        font-size:30px;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🩸 قطرة حياة</h1>
+    <p>قطرة من دمك قد تكون حياة لإنسان</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<div class="scope">
+📍 منصة محلية لخدمة دائرة يلل – ولاية غليزان
+<br>
+يلل • سيدي سعادة • القلعة • عين الرحمة
+</div>
+
+<div class="buttons">
+
+<button class="red" onclick="showSection('request')">
+🩸 أحتاج إلى متبرع
+</button>
+
+<button class="green" onclick="showSection('donor')">
+❤️ أريد التبرع بالدم
+</button>
+
+</div>
+
+<div class="tabs">
+
+<button class="tab active" id="tabRequest"
+onclick="showSection('request')">
+طلب دم
+</button>
+
+<button class="tab" id="tabDonor"
+onclick="showSection('donor')">
+تسجيل متبرع
+</button>
+
+<button class="tab" id="tabSearch"
+onclick="showSection('search')">
+البحث عن متبرع
+</button>
+
+</div>
+
+
+<!-- طلب الدم -->
+
+<div id="request" class="section active">
+
+<h2>🩸 طلب متبرع بالدم</h2>
+
+<div class="notice">
+يرجى إدخال معلومات صحيحة. المنصة هدفها تسهيل التواصل بين طالب الدم والمتبرعين، ولا تعوض المستشفى أو مركز الدم.
+</div>
+
+<form class="form" onsubmit="submitRequest(event)">
+
+<div>
+<label>الاسم</label>
+<input type="text" required>
+</div>
+
+<div>
+<label>رقم الهاتف</label>
+<input type="tel" required>
+</div>
+<div>
+<label>فصيلة الدم</label>
+<select required>
+<option value="">اختر الفصيلة</option>
+<option>A+</option>
+<option>A-</option>
+<option>B+</option>
+<option>B-</option>
+<option>AB+</option>
+<option>AB-</option>
+<option>O+</option>
+<option>O-</option>
+</select>
+</div>
+<div>
+<label>فصيلة الدم</label>
+<select required>
+<option value="">اختر الفصيلة</option>
+<option>A+</option>
+<option>A-</option>
+<option>B+</option>
+<option>B-</option>
+<option>AB+</option>
+<option>AB-</option>
+<option>O+</option>
+<option>O-</option>
+</select>
+</div>
